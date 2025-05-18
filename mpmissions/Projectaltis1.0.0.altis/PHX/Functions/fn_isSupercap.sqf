@@ -1,0 +1,1 @@
+(allMapMarkers select { ["Redzone_Supercap_",_x] call life_fnc_inString }) findIf {(param [0, [], [[]]]) inArea _x} > -1
