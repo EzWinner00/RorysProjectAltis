@@ -98,6 +98,17 @@ class CfgVehicleStores {
             { "C_Kart_01_yellow_F", "" }, // Kart (Yellow)
         };
     };
+    class bounty_cars {
+        side = "civ";
+        conditions = "license_civ_bounty";
+
+        vehicles[] = {
+            { "C_SUV_01_F", "" },              // SUV – great for retexturing as a pursuit vehicle
+            { "C_Offroad_01_F", "" },         // Offroad – rugged option for bounty work
+            { "C_Offroad_02_unarmed_F", "" }, // MB 4WD – armored look, good for high-risk targets
+            { "I_E_Offroad_01_covered_F", "" } // Covered Offroad – perfect for prisoner transport look
+        };
+    };
     class rebel_dealership {
         side = "civ";
         conditions = "(playerSide isEqualTo civilian && (license_civ_rebel || license_civ_PMC)) || { (player getVariable ['isCID', false]) || (player getVariable ['isHSS', false])}";

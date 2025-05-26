@@ -2915,4 +2915,33 @@ class CfgItems {
         description = "Can be used to reduce jail time";
         conditions = "";
     };
+    class bountyTablet {
+        variable = "bountyTablet";
+        displayName = "Bounty Tablet";
+        weight = 1;
+        buyPrice = 25000;
+        sellPrice = -1;
+        illegal = false;
+        save = true;
+        taxed = false;
+        marketDisplay = false;
+
+        class dynmarket {
+            dynamic = false;
+            driftPerc = 0;
+        };
+
+        class edibility {
+            edible[] = {false, ""};
+            value = -1;
+        };
+
+        icon = "icons\bounty_tablet.paa";
+        description = "Allows viewing of the criminal database at any time.";
+        conditions = "";
+
+        class Events {
+            onUse = "[] spawn life_fnc_wantedMenu;";
+        };
+    };
 };

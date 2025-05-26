@@ -1,6 +1,8 @@
 disableChannels[] = {{0,true,true},{1,true,true},{2,true,true}};    // Disabled text and voice for global, side, and command channels. Syntax: disableChannels[] = {{channelID<number>, disableChat<bool>, disableVoice<bool>}};
 disabledAI = 1;
-enableDebugConsole = 1;
+enableDebugConsole[] = {
+    "76561199677705220",   //-- Ni1kko
+};
 allowFunctionsLog = 1;
  
 corpseManagerMode = 0;
@@ -19,7 +21,7 @@ onPauseScript[] = { "LIFE_fnc_escInterupt" };
 
 class CfgServer {
     DatabaseName = "PHX_DB"; //Config name that'll be grep in the extdb-conf.ini. Default: [altislife]
-    DebugMode = 0; //Enable many server/hc debugging logs. Default: 0 (1 = Enabled / 0 = Disabled)
+    DebugMode = 1; //Enable many server/hc debugging logs. Default: 0 (1 = Enabled / 0 = Disabled)
     HeadlessSupport = 1; //Enable/Disable Headless client support. Default: 1 (1 = Enabled / 0 = Disabled)
     /*
     Enabled: When HeadlessSupport is set to 1 (enabled), the server will run without fault when no Headless Client is connected. However, it will support the Headless Client if you choose to connect one.
@@ -35,11 +37,14 @@ class RscTitles {
     #include "PHX\GUI\Loading\RscTitleLoading.hpp"
     #include "PHX\GUI\RscBacking.hpp"
     #include "dialog\RscCapture.hpp"
+    #include "dialog\RscCivEventDisplay.hpp"
+
 };
 
 class CfgFunctions {
     #include "Functions.hpp"
 };
+
 
 class CfgSounds {
     sounds[] = {};

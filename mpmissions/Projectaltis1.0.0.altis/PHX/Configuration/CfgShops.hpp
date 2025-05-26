@@ -269,4 +269,11 @@ class CfgShops {
         gangXP = false;
         items[] = { "bath_water" };
     };
+    class bounty_market {
+        name = "Bounty Hunter Market";
+        conditions = "license_civ_bounty";
+        gangXP = false;
+        items[] = {"handcuffs", "blindfold", "coffee", "energyDrink", "tracker", "firstAidKit", "bountyTablet"};
+    };
+
 };

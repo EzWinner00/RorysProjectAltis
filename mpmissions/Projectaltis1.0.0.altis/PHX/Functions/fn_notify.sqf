@@ -6,6 +6,7 @@
 #define COLOUR_CFG missionConfigFile >> "CfgColours"
 #define BASE_IDC 100000
 #define Y_OFFSET 0.01
+
 params [
     ["_message", "", [""]],
     ["_colour", "black", [""]],
@@ -31,8 +32,24 @@ disableSerialization;
 private _display = findDisplay 46;
 private _thisMsg = [];
 
+private _baseX = 1 * safezoneW + safezoneX;
+private _baseY = 0.17 * safezoneH + safezoneY;
+private _finalY = _baseY;
+
+// Determine final Y position by stacking below existing notifications
+{
+    if (count _x >= 1) then {
+        private _existingCtrl = _x select 0;
+        if (!isNull _existingCtrl) then {
+            private _h = (ctrlPosition _existingCtrl) # 3;
+            _finalY = _finalY + _h + Y_OFFSET;
+        };
+    };
+} forEach PHX_Notifications;
+
+// Create text control
 private _text = _display ctrlCreate ["Life_RscStructuredText", -1];
-_text ctrlSetPosition [1 * safezoneW + safezoneX, 0.17 * safezoneH + safezoneY, 0.149531 * safezoneW, 0.01];
+_text ctrlSetPosition [_baseX, _finalY, 0.149531 * safezoneW, 0.01];
 _text ctrlCommit 0;
 _text ctrlSetBackgroundColor [0, 0, 0, 0.6];
 _text ctrlSetFade 1;
@@ -41,27 +58,29 @@ _text ctrlSetStructuredText parseText format[
     _title, _message
 ];
 private _height = ctrlTextHeight _text;
-_text ctrlSetPosition [1 * safezoneW + safezoneX, 0.17 * safezoneH + safezoneY, 0.149531 * safezoneW, _height];
+_text ctrlSetPosition [_baseX, _finalY, 0.149531 * safezoneW, _height];
 _text ctrlCommit 0;
 
+// Create colour bar
 private _bar = _display ctrlCreate ["Life_RscBackground", -1];
 _bar ctrlSetBackgroundColor _colour;
 _bar ctrlSetFade 1;
-_bar ctrlSetPosition [0.994843 * safezoneW + safezoneX, 0.17 * safezoneH + safezoneY, 0.00315625 * safezoneW, _height];
+_bar ctrlSetPosition [0.994843 * safezoneW + safezoneX, _finalY, 0.00315625 * safezoneW, _height];
 _bar ctrlCommit 0;
 
 _thisMsg pushBack _text;
 _thisMsg pushBack _bar;
 
+// Animate + fade logic
 _thisMsg spawn {
     params ["_text", "_bar"];
     disableSerialization;
 
-    // Slide in...
     private _pos = ctrlPosition _text;
     _pos set [0, ((1 - 0.154531) * safezoneW + safezoneX)];
     _text ctrlSetPosition _pos;
     _text ctrlCommit 0.25;
+
     _pos = ctrlPosition _bar;
     _pos set [0, ((0.996043 - 0.154531) * safezoneW + safezoneX)];
     _bar ctrlSetPosition _pos;
@@ -70,7 +89,6 @@ _thisMsg spawn {
     { _x ctrlSetFade 0 } forEach _this;
     { _x ctrlCommit 0.125 } forEach _this;
 
-    // ⏱ Cooldown-safe sound ping
     if !(PHX_settings_notify) then {
         private _now = time;
         if ((_now - PHX_LastNotifySound) > 4) then {
@@ -81,33 +99,13 @@ _thisMsg spawn {
 
     uiSleep 8;
 
-    // Fade out...
     { _x ctrlSetFade 1 } forEach _this;
     { _x ctrlCommit 0.75 } forEach _this;
     uiSleep 2;
     { ctrlDelete _x } forEach _this;
 };
 
-private _offsetY = ((ctrlPosition _text) # 3) + Y_OFFSET;
-if ((count PHX_Notifications) > 0) then {
-    {
-        _x params ["_text", "_bar"];
-        if (isNull _text) then {
-            PHX_Notifications deleteAt _forEachIndex;
-        } else {
-            disableSerialization;
-
-            private _posBackground = ctrlPosition _text;
-            private _posBar = ctrlPosition _bar;
-            private _newPosY = (_posBackground # 1) + _offsetY;
-            _text ctrlSetPosition [(_posBackground # 0), _newPosY];
-            _text ctrlCommit 0.5;
-            _bar ctrlSetPosition [(_posBar # 0), _newPosY];
-            _bar ctrlCommit 0.5;
-        };
-    } forEach PHX_Notifications;
-};
-
+// Add to tracking array
 PHX_Notifications pushBack _thisMsg;
 
 uiSleep 0.75;

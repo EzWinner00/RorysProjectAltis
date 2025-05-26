@@ -33,8 +33,8 @@ class CfgSettings {
     spyGlass_toggle = true;
     battlEye_friendlyLogging = false;
     player_advancedLog = false;
-    player_moneyLog = false;
-    player_deathLog = false;
+    player_moneyLog = true;
+    player_deathLog = true;
 
     /* Escape Menu Configuration */
     escapeMenu_timer = 10;

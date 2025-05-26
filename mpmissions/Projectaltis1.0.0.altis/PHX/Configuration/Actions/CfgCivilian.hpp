@@ -379,7 +379,7 @@ class clothingStore {
 // Licencing Stores
 class dvla {
 	actions[] = {
-		{ "<t color='#b4a7d6'>[CIV]</t> License Store", "PHX_fnc_openLicenses", {"driver","trucking","boat","pilot","dive","home"}, "playerSide isEqualTo civilian", 5 }
+		{ "<t color='#b4a7d6'>[CIV]</t> License Store", "PHX_fnc_openLicenses", {"driver","trucking","boat","pilot","dive","home","bounty"}, "playerSide isEqualTo civilian", 5 }
 	};
 };
 
@@ -735,6 +735,27 @@ class civForger {
 	actions[] = {
 		{ "<t color='#b4a7d6'>[CIV]</t> Create Fake ID", "PHX_fnc_createFakeID", "playerSide isEqualTo civilian", "playerSide isEqualTo civilian", 5 }
 	};
+};
+
+//Bounty Hunting
+class bountyHuntStore {
+    actions[] = {
+        { "<t color='#b4a7d6'>[CIV]</t> Bounty Hunter License Store", "PHX_fnc_openLicenses", {"bounty"}, "playerSide isEqualTo civilian && license_civ_bounty", 5 },
+
+        { "<t color='#b4a7d6'>[CIV]</t> Bounty Hunter Market", "life_fnc_virt_menu", "bounty_market", "playerSide isEqualTo civilian && license_civ_bounty", 5 },
+
+        { "<t color='#b4a7d6'>[CIV]</t> Bounty Hunter Clothing", "life_fnc_clothingMenu", "bounty_clothing", "playerSide isEqualTo civilian && license_civ_bounty", 5 },
+
+        { "<t color='#b4a7d6'>[CIV]</t> Bounty Hunter Equipment", "life_fnc_weaponShopMenu", "bounty_equipment", "playerSide isEqualTo civilian && license_civ_bounty", 5 },
+
+        { "<t color='#b4a7d6'>[CIV]</t> Bounty Hunter Weapons", "life_fnc_weaponShopMenu", "bounty_weapons", "playerSide isEqualTo civilian && license_civ_bounty", 5 },
+
+        { "<t color='#b4a7d6'>[CIV]</t> Bounty Hunter Vehicles", "life_fnc_vehicleShopMenu", {"bounty_cars", "civ"}, "playerSide isEqualTo civilian && license_civ_bounty", 5 },
+
+        { "<t color='#00FFFF'>[GARAGE]</t> Bounty Hunter Garage", "life_fnc_garage", {"Car", "civ"}, "playerSide isEqualTo civilian && license_civ_bounty", 5 },
+
+        { "<t color='#ADFF2F'>[ATM]</t> Cashpoint", "PHX_fnc_atmMenu", "", "playerSide isEqualTo civilian && license_civ_bounty", 5 }
+    };
 };
 
 // Chop Shops
