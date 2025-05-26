@@ -75,12 +75,6 @@ class Life_Client_Core {
         class waterCooler {};
     };
 
-    class CivEvents {
-        file = "core\CivEvents";
-        class startCivEvent {};
-        class updateEventHud {};
-    };
-
     class Civilian {
         file = "core\civilian";
         class civLoadout {};

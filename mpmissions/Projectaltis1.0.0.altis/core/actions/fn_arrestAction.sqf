@@ -28,19 +28,8 @@ if (playerSide isEqualTo west) then {
     [getPlayerUID _unit,_unit,player,false] remoteExecCall (["fnc_wantedBounty","life"] call SOCK_fnc_getRemoteDestination);
     [0,format["%1 was arrested by the police for %2 minutes.", _unit getVariable ["realname",name _unit], _jailTime]] remoteExecCall ["life_fnc_broadcast",RCLIENT];
 } else {
-    if (!(license_civ_bounty)) exitWith {
-        ["You must have a Bounty Hunter License to arrest players.", "red"] spawn PHX(notify);
-    };
-
-    if (_jailTime < 5 || { _jailTime > 15 }) exitWith {
-        ["You can only send people to jail for 5 to 15 minutes", "red"] spawn PHX(notify);
-    };
-
-    // Treat bounty hunters like cops
-    [getPlayerUID _unit, _unit, player, false] remoteExecCall (["fnc_wantedBounty", "life"] call SOCK_fnc_getRemoteDestination);
-    [0, format["%1 was arrested by a bounty hunter for %2 minutes.", _unit getVariable ["realname", name _unit], _jailTime]] remoteExecCall ["life_fnc_broadcast", RCLIENT];
+    if (_jailTime < 5 || { _jailTime > 15 }) exitWith { ["You can only send people to jail for 5 to 15 minutes","red"] spawn PHX(notify) };
 };
-
 
 _jailTime = (60 * _jailTime);
 

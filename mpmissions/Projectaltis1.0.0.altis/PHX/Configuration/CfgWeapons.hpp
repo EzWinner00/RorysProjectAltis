@@ -28,44 +28,22 @@ class CfgWeapons {
             };
         };
 
-        class bounty_equipment {
-            name = "Bounty Hunter Gear";
-            conditions = "license_civ_bounty";
+        class fuel_station_Store {
+            name = "Fuel Station Store";
+            conditions = "true";
             defaultTab = "items";
-
-            weps[] = {
-                { "hgun_P07_F", "9mm Sidearm", 12000, 3500, "true" },
-                { "SMG_02_F", "Sting SMG", 30000, 8000, "true" },
-                { "arifle_SPAR_01_khk_F", "SPAR-16 Carbine", 55000, 20000, "true" },
-                { "Binocular", "Binoculars", 500, 250, "true" },
-                { "Rangefinder", "Rangefinder", 10000, 4000, "true" }
-            };
-
-            mags[] = {
-                { "16Rnd_9x21_Mag", "16rnd 9mm", 90, 45, "true" },
-                { "30Rnd_9x21_Mag_SMG_02", "30rnd SMG", 120, 60, "true" },
-                { "30Rnd_556x45_Stanag", "30rnd 5.56mm", 250, 125, "true" }
-            };
-
-            accs[] = {
-                { "muzzle_snds_L", "9mm Suppressor", 1500, 750, "true" },
-                { "muzzle_snds_M", "5.56 Suppressor", 3000, 1500, "true" },
-                { "acc_flashlight", "Flashlight", 500, 250, "true" },
-                { "optic_ACO_grn", "ACO Sight", 900, 450, "true" }
-            };
-
+            weps[] = {};
+            mags[] = {};
+            accs[] = {};
             items[] = {
-                { "ItemMap", "Map of Altis", 120, 60, "true" },
-                { "ItemGPS", "Handheld GPS", 10000, 2500, "true" },
-                { "ItemRadio", "Encrypted Radio", 250, 125, "true" },
-                { "ItemCompass", "Compass", 45, 20, "true" },
+                { "ItemMap", "Map of Altis", 120, 120, "true" },
+                { "ItemGPS", "Handheld GPS", 10000, 1250, "true" },
+                { "ItemRadio", "Mobile Phone", 190, 190, "true" },
+                { "ItemCompass", "Compass", 45, 23, "true" },
                 { "ItemWatch", "Wrist Watch", 60, 30, "true" },
-                { "ToolKit", "Toolkit", 1500, 750, "true" },
-                { "FirstAidKit", "First Aid Kit", 500, 250, "true" }
+                { "ToolKit", "Toolkit", 1500, 750, "true" }
             };
         };
-
-
 
         class go_karting_store {
             name = "Go-Karting Store";

@@ -2864,10 +2864,6 @@ class CfgSpyGlass {
 
     LIFE_Functions[] = {
         "life_fnc_aan",
-        "life_fnc_updateCivStat",
-        "life_fnc_updateEventHud",
-        "life_fnc_startCivEvent",
-        "life_fnc_proxyCivStat",
         "life_fnc_aan_meta",
         "life_fnc_acctype",
         "life_fnc_acctype_meta",
@@ -3643,10 +3639,6 @@ class CfgSpyGlass {
         {"mineral_processing_1", "OBJECT"},
         {"mineral_processing_2", "OBJECT"},
         {"gov_vender", "OBJECT"},
-        {"PHX_CivEventLeaderboard", "ARRAY"},
-        {"PHX_CivEventLeader", "ARRAY"},
-        {"PHX_CivEventStat", "SCALAR"},
-        {"PHX_CivEventType", "STRING"},
         {"drug_syndikat_collection", "OBJECT"},
         {"medic_general_1", "OBJECT"},
         {"life_inv_raw_rabbit", "SCALAR"},

@@ -56,13 +56,6 @@ class CfgLicenses {
         illegal = false;
         side = "civ";
     };
-    class bounty {
-        variable = "bounty";
-        displayName = "Bounty Hunter License";
-        price = 150000;
-        illegal = false;
-        side = "civ";
-    };
     // Firearm Stores
     class gun {
         variable = "gun";

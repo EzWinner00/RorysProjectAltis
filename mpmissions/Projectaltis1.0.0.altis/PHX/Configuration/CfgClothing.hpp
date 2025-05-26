@@ -1192,43 +1192,6 @@ class CfgClothing {
             };
         };
 
-        class bounty_clothing {
-            title = "Bounty Hunter Clothing";
-            conditions = "license_civ_bounty";
-            side = "civ";
-
-            uniforms[] = {
-                { "NONE", "Remove Uniform", 0, "true" },
-                { "U_I_C_Soldier_Para_1_F", "Bounty Uniform", 0, "true" } // Future: retexture to .paa
-            };
-
-            headgear[] = {
-                { "NONE", "Remove Headgear", 0, "true" },
-                { "H_Booniehat_khk", "Khaki Boonie", 0, "true" },
-                { "H_MilCap_tna_F", "Tactical Cap", 0, "true" },
-                { "H_HelmetSpecB", "Combat Helmet", 0, "true" }
-            };
-
-            goggles[] = {
-                { "NONE", "Remove Glasses", 0, "true" },
-                { "G_Shades_Black", "Shades", 0, "true" },
-                { "G_Tactical_Clear", "NV Glasses", 0, "true" }
-            };
-
-            vests[] = {
-                { "NONE", "Remove Vest", 0, "true" },
-                { "V_TacVest_khk", "Tactical Vest", 0, "true" },
-                { "V_PlateCarrier1_rgr", "Carrier Lite", 0, "true" }
-            };
-
-            backpacks[] = {
-                { "NONE", "Remove Backpack", 0, "true" },
-                { "B_AssaultPack_blk", "Small Pack", 0, "true" },
-                { "B_FieldPack_cbr", "Field Pack", 0, "true" }
-            };
-        };
-
-
         // CSAT Clothing Stores
         class havoc_clothing {
             title = "CSAT Clothing Store";
