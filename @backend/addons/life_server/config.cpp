@@ -174,7 +174,6 @@ class CfgFunctions {
                 class serverEventLoop {};
                 class endCivEvent {};
                 class updateCivStat {};
-                class proxyUpdateCivStat {};
         };
 
         class Jail_Sys {
