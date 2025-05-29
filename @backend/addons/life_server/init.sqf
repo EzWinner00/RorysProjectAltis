@@ -188,6 +188,17 @@ cleanup = [] spawn TON_fnc_cleanup;
 
 PHX_CartelLoops = [];
 [] call PHXSRV_fnc_setupCartels;
+                                                                      //eventloop block
+[] spawn {
+    waitUntil { !isNil "life_fnc_serverEventLoop" };
+    waitUntil { time > 15 };
+
+    if (isServer) then {
+        diag_log "[CIV EVENT] Launching serverEventLoop (safe override)";
+        [] spawn life_fnc_serverEventLoop;
+    };
+};
+
 
 TON_fnc_playtime_values = [];
 TON_fnc_playtime_values_request = [];
