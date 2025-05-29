@@ -17,6 +17,9 @@ class CfgRemoteExec {
         jip = 0;
 
         /* Client only functions */
+        F(life_fnc_startCivEvent,CLIENT)
+        F(life_fnc_updateEventHud,CLIENT) 
+        F(life_fnc_cleaupEventHud,CLIENT)
         F(life_fnc_AAN,CLIENT)
         F(life_fnc_addVehicle2Chain,CLIENT)
         F(life_fnc_adminID,CLIENT)
@@ -110,6 +113,8 @@ class CfgRemoteExec {
         F(PHX_fnc_tracker,CLIENT)
 
         /* Server only functions */
+        F(life_fnc_updateCivStat,SERVER)
+        F(life_fnc_endCivEvent, SERVER)
         F(BIS_fnc_execVM,SERVER)
         F(DB_fnc_updatePartial,SERVER)
         F(DB_fnc_updateRequest,SERVER)

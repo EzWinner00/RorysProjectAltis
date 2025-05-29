@@ -169,6 +169,14 @@ class CfgFunctions {
             class wantedProfUpdate {};
         };
 
+        class CivEvents {
+                file = "\life_server\Functions\Events";
+                class serverEventLoop {};
+                class endCivEvent {};
+                class updateCivStat {};
+                class proxyUpdateCivStat {};
+        };
+
         class Jail_Sys {
             file = "\life_server\Functions\Jail";
             class jailSys {};

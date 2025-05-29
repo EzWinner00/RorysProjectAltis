@@ -88,6 +88,13 @@ class Life_Client_Core {
         class tazed {};
     };
 
+    class CivEvents {
+        file = "core\CivEvents";
+        class startCivEvent {};
+        class updateEventHud {};
+        class cleanupEventHud {};
+    };
+
     class Config {
         file = "core\config";
         class houseConfig {};
